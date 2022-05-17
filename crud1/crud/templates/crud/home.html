@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+</head>
+<body>
+    <h1>This is h1 tag </h1>
+    <table>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Action</th>
+{% for employee in empls %}
+<tr>
+    <td><a href="/employees/{{employee.id}}">{{employee.first_name}}</a><br></td>
+    <td>{{employee.last_name}}<br></td>
+    <td>{{employee.email}}<br> </td>
+    <td>{{employee.salary}}<br> </td>
+    <td><a href="/employees/edit/{{employee.id}}">Edit</a> <a href="/employees/delete/{{employee.id}}">Delete</a> <br> </td>
+</tr>
+{% endfor %}
+
+<tfoot>
+        <tr><td>Total Employees </td><td>{{length}}</td></tr>
+      </tfoot>
+    </table>
+<h1>TO REGISTER NEW EMPLOYEE <a href="/employees/registration">CLICK HERE</a></h1>
+
+<h2>{{Average}}</h2>
+<h2>{{Average.salary__avg}}</h2>
+
+<h2>{{Sum}}</h2>
+<h2>{{Sum.salary__sum}}</h2>
+
+<h2>{{Minimum}}</h2>
+<h2>{{Minimum.salary__min}}</h2>
+
+<h2>{{Maximum}}</h2>
+<h2>{{Maximum.salary__max}}</h2>
+
+<h2>{{Count}}</h2>
+<h2>{{Count.salary__count}}</h2>
+
+</body>
+</html>

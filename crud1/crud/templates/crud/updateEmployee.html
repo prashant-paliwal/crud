@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPDATE EMPLOYEE DETAILS </title>
+</head>
+<body>
+  <h1>THIS IS UPDATE EMPLOYEE FORM ! </h1>
+
+  <form action="/employees/edit/{{empls.id}}" method="POST" > {% csrf_token %}
+    <label for="registration_id">Registration id: </label>
+    <input type="text" id="registration_id"  name="registration_id" value="{{empls.registration_id}}" placeholder="{{empls.registration_id}}"><br><br>
+
+    <label for="First_Name">First name: </label>
+    <input type="text" id="First_Name"  name="first_name" value="{{empls.first_name}}" placeholder="{{empls.first_name}}"><br><br>
+
+    <label for="Last_Name">Last name: </label>
+    <input type="text" id="Last_Name"  name="last_name" value="{{empls.last_name}}" placeholder="{{empls.last_name}}"><br><br>
+
+    <label for="Email">Email: </label>
+    <input type="email" id="Email"  name="email" value="{{empls.email}}" placeholder="{{empls.email}}"><br><br>
+
+    <label for="Role">Role: </label>
+    <select name="role" id="Role">
+      <option value="{{empls.role}}" selected>{{empls.role}}</option>
+      <option value="BACKEND_DEVELOPER">BACKEND_DEVELOPER</option>
+      <option value="FRONTEND_DEVELOPER">FRONTEND_DEVELOPER</option>
+      <option value="HR">HR</option>
+      <option value="DESINER" >DESINER</option>
+      <option value="MOBILE_DEVELOPER">MOBILE_DEVELOPER</option>
+    </select>
+    <input type="submit" value="Submit form">
+  </form>
+</body>
+</html>

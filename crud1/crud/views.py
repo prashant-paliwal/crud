@@ -24,8 +24,8 @@ def employeeRegistration(request):
 
 
 def home(request):
-	# emp_obj = employees.objects.all()
-	emp_obj = employees.Teri.get_stu_roll_range(3,7)
+	emp_obj = employees.objects.all()
+	#emp_obj = employees.Teri.get_stu_roll_range(3,7)
 	print("###########",emp_obj.explain())
 	length = len(emp_obj)
 	return render(request,'crud/home.html',{'empls':emp_obj,'length':length})
